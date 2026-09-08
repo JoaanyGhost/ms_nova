@@ -1,0 +1,58 @@
+<div id="banner" class="banner ">
+
+
+  <div class="women">
+    <img src="/assets/home/header/women-1.jpg" alt="women">
+    <a href="#" class="switch-btn" (click)="switchBanner('left', $event)">Women</a>
+
+    <div class="content">
+      <h1>Ladies' Fashion</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Porro voluptates necessitatibus consequatur? Accusantium est
+        iste vel obcaecati debitis facilis aliquam inventore molestiae
+        laudantium perferendis tempore harum in, voluptatibus esse temporibus?
+      </p>
+      <a href="#">Shop around <fa-icon [icon]="faCartShopping"></fa-icon></a>
+    </div>
+
+  </div>
+
+  <div class="men">
+    <img src="/assets/home/header/men-1.jpg" alt="men">
+    <a href="#" class="switch-btn" (click)="switchBanner('middle', $event)">Men</a>
+
+    <div class="content">
+      <h1>Men with Taste</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Porro voluptates necessitatibus consequatur? Accusantium est
+        iste vel obcaecati debitis facilis aliquam inventore molestiae
+        laudantium perferendis tempore harum in, voluptatibus esse temporibus?
+      </p>
+      <a href="#">Shop around <fa-icon [icon]="faCartShopping"></fa-icon></a>
+    </div>
+
+  </div>
+
+  <div class="special">
+    <img src="/assets/home/header/special-1.jpg" alt="special">
+    <a href="#" class="switch-btn" (click)="switchBanner('right', $event)">Special</a>
+
+    <div class="content">
+      <h1>Be a cool young</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Porro voluptates necessitatibus consequatur? Accusantium est
+        iste vel obcaecati debitis facilis aliquam inventore molestiae
+        laudantium perferendis tempore harum in, voluptatibus esse temporibus?
+      </p>
+      <a href="#">Shop around <fa-icon [icon]="faCartShopping"></fa-icon></a>
+    </div>
+
+  </div>
+
+  <a href="#" class="reset" (click)="closeBanner($event)"><fa-icon [icon]="faEye"></fa-icon></a>
+  <a href="#" class="reset-close" (click)="closeBanner($event)"><fa-icon [icon]="faEyeSlash"></fa-icon></a>
+
+</div>

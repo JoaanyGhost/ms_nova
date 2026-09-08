@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root{
+  --primary: #ff0051;
+  --second: #3a3a3a;
+  --third: #f2f2f2;
+
+  --color-women-primary: #BF8A6B;
+  --color-men-primary: #353535; //#76D6EC
+  --color-special-primary: #9590B8;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}

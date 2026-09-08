@@ -1,0 +1,319 @@
+.personalize {
+  --ink: #171716;
+  --muted: #706d66;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.15fr) 190px;
+  grid-template-rows: 1fr auto;
+  gap: 28px;
+  min-height: 680px;
+  padding: 72px clamp(24px, 6vw, 96px) 42px;
+  overflow: hidden;
+  color: var(--ink);
+  background: #e9e4dc;
+  background-image: linear-gradient(115deg, rgba(255, 255, 255, 0.36), transparent 56%);
+}
+
+.personalize__copy {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  max-width: 390px;
+}
+
+.eyebrow {
+  margin: 0 0 24px;
+  color: #847560;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.personalize h2 {
+  margin: 0;
+  font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+  font-weight: 750;
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+.personalize__description {
+  max-width: 285px;
+  margin: 32px 0 26px;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.personalize__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-width: 215px;
+  padding: 15px 19px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.personalize__button:hover {
+  background: #514d45;
+  transform: translateY(-2px);
+}
+
+.personalize__button span {
+  font-size: 1.45rem;
+  font-weight: 300;
+  line-height: 0.7;
+}
+
+.personalize__visual {
+  position: relative;
+  align-self: stretch;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.personalize__visual::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: linear-gradient(90deg, rgba(233, 228, 220, 0.18), transparent 25%);
+  pointer-events: none;
+}
+
+.personalize__visual img {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.78) contrast(0.95);
+}
+
+.personalize__formula {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  padding: 28px 18px;
+  border-radius: 18px;
+  background: rgba(250, 248, 244, 0.88);
+  box-shadow: 0 16px 35px rgba(59, 51, 41, 0.1);
+  text-align: center;
+}
+
+.personalize__formula h3,
+.personalize__formula strong {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.formula__garment {
+  position: relative;
+  width: 80px;
+  height: 78px;
+  margin: 5px 0;
+}
+
+.garment__body,
+.garment__sleeve,
+.garment__neck {
+  position: absolute;
+  display: block;
+  border: 1.5px solid var(--ink);
+}
+
+.garment__body {
+  top: 17px;
+  left: 22px;
+  width: 36px;
+  height: 55px;
+  border-radius: 4px 4px 10px 10px;
+}
+
+.garment__neck {
+  top: 11px;
+  left: 31px;
+  width: 18px;
+  height: 14px;
+  border-radius: 50%;
+  background: #faf8f4;
+}
+
+.garment__sleeve {
+  top: 19px;
+  width: 21px;
+  height: 35px;
+}
+
+.garment__sleeve--left {
+  left: 5px;
+  transform: rotate(25deg);
+  border-radius: 5px 0 8px 8px;
+}
+
+.garment__sleeve--right {
+  right: 5px;
+  transform: rotate(-25deg);
+  border-radius: 0 5px 8px 8px;
+}
+
+.formula__operator {
+  font-size: 1.55rem;
+  line-height: 1;
+}
+
+.formula__design {
+  padding: 13px 12px;
+  border-radius: 8px;
+  color: #f8f5ef;
+  background: #46443e;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.personalize__benefits {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: clamp(28px, 7vw, 90px);
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.benefit__icon {
+  display: grid;
+  flex: 0 0 44px;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid #a89a86;
+  border-radius: 50%;
+  color: #5d574d;
+  font-size: 1.45rem;
+}
+
+.benefit__icon--clock {
+  font-size: 1.65rem;
+}
+
+.benefit p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .personalize {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 390px auto;
+    padding: 58px 24px 34px;
+  }
+
+  .personalize__visual {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    min-height: 390px;
+  }
+
+  .personalize__visual img {
+    min-height: 390px;
+  }
+
+  .personalize__formula {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: 180px;
+    justify-self: end;
+  }
+
+  .personalize__copy {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .personalize__benefits {
+    grid-row: 3;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 560px) {
+  .personalize {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    padding: 48px 20px 32px;
+  }
+
+  .personalize__copy {
+    max-width: none;
+  }
+
+  .personalize h2 {
+    font-size: 3.45rem;
+  }
+
+  .personalize__formula {
+    align-self: flex-start;
+    width: 100%;
+    max-width: none;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px;
+  }
+
+  .personalize__formula h3,
+  .personalize__formula strong {
+    font-size: 0.65rem;
+  }
+
+  .formula__garment {
+    transform: scale(0.72);
+    margin: -12px;
+  }
+
+  .formula__operator {
+    font-size: 1.15rem;
+  }
+
+  .formula__design {
+    padding: 9px 8px;
+    font-size: 0.78rem;
+  }
+
+  .personalize__visual,
+  .personalize__visual img {
+    min-height: 330px;
+  }
+
+  .personalize__benefits {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 14px;
+  }
+
+  .benefit:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .benefit__icon {
+    flex-basis: 38px;
+    width: 38px;
+    height: 38px;
+  }
+}

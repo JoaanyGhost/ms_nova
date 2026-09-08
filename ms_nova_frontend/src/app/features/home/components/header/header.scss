@@ -1,0 +1,799 @@
+
+/* SECCIÓN DEL BANNER*/
+.banner{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  transition: background 2s ease-in !important;
+  &.left{
+    background: var(--color-women-primary);
+    transition: background 0s ease-in !important;
+
+  }
+
+  &.middle{
+    background: var(--color-men-primary);
+    transition: background 0s ease-in !important;
+  }
+
+  &.right{
+    background: var(--color-special-primary);
+    transition: background 0s ease-in !important;
+  }
+
+}
+
+/*SOMBRAS DE LAS IMAGENES*/
+.women::before,
+.men::before,
+.special::before{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  transition: 0.5s;
+}
+
+
+.women:hover::before,
+.men:hover::before,
+.special:hover::before{
+  background: transparent;
+}
+
+.women{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  background: var(--color-women-primary);
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.men{
+  position: absolute;
+  top: 0;
+  left: 30%;
+  height: 100%;
+  width: 40%;
+  clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 0% 100%, 25% 50%, 0 0);
+  background: var(--color-men-primary);
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.special{
+  position: absolute;
+  top: 0;
+  left: 60%;
+  height: 100%;
+  width: 40%;
+  clip-path: polygon(25% 0%, 100% 0, 100% 100%, 25% 100%, 0% 50%);
+  background: var(--color-special-primary);
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.banner.left .women,
+.banner.middle .men,
+.banner.right .special{
+  width: 100%;
+  clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 0 50%, 0% 0%);
+  transition: 1s;
+}
+
+.banner.middle .men{
+  left: 0;
+}
+
+.banner.right .special{
+  left: 0;
+}
+
+
+.banner.left .men,
+.banner.left .special{
+  left: 120%;
+}
+
+
+.banner.right .men,
+.banner.right .women{
+  left: -120%;
+}
+
+.banner.middle .women{
+  left: -120%;
+}
+
+.banner.middle .special{
+  left: 120%;
+}
+
+
+
+/*IMAGENES DEL BANNER*/
+
+.women img,
+.men img,
+.special img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: 0.5s;
+}
+
+.women img{
+  object-position: top;
+}
+
+.banner.left .women img{
+  width: 50%;
+}
+
+.banner.middle .men img,
+.banner.right .special img{
+  left: 50%;
+  width: 50%;
+}
+
+
+/* BOTON CAMBIO DE BANNER*/
+
+
+.switch-btn{
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  font-size: 5em;
+  font-weight: 300;
+  margin-top: 40%;
+  z-index: 1000;
+  transition: 0.5s;
+  transform: scale(1);
+}
+
+
+.switch-btn:hover{
+  transform: scale(1.2);
+}
+
+// .banner.left .women .switch-btn,
+// .banner.middle .men .switch-btn,
+// .banner.right .special .switch-btn{
+//   margin: 0;
+//   transform: translateY(400%);
+//   transition: 0.5s;
+// }
+
+
+
+/*BOTON DE CIERRE*/
+
+.reset{
+  position: absolute;
+  left: 100px;
+  bottom: 100px;
+  z-index: 1000;
+  transform: scale(1);
+  color: white;
+  font-size: 3em;
+
+  transition: 0.5s;
+
+  cursor: pointer;
+}
+
+.reset-close{
+  position: absolute;
+  left: 100px;
+  bottom: 100px;
+  z-index: 1000;
+  transform: scale(0);
+  color: white;
+  font-size: 3em;
+
+  transition: 0.5s;
+
+  cursor: pointer;
+}
+
+.reset.active,
+.reset-close.active{
+  scale: (1);
+}
+
+
+.reset:hover,
+.reset-close:hover{
+  color: var(--primary);
+}
+
+
+
+/*COTENEDOR DE CADA BANNER*/
+
+
+.banner .content{
+  position: absolute;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  z-index: 900;
+}
+.banner .content h1{
+  color: white;
+  font-size: 4.5em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+.banner .content p{
+  color: white;
+  font-weight: 200;
+  font-size: 1em;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+
+.banner .content a{
+  position: relative;
+  width: 200px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: white;
+  padding: 12px 20px;
+  border: 1px solid white;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.banner .content a:hover{
+  background-color: white;
+  color: var(--primary);
+
+}
+
+.banner.left .women .content a:hover{
+  background-color: white;
+  color: var(--color-women-primary);
+}
+
+.banner.middle .men .content a:hover{
+  background-color: white;
+  color: var(--color-men-primary);
+}
+
+.banner.right .special .content a:hover{
+  background-color: white;
+  color: var(--color-special-primary);
+}
+
+
+.banner.left .women .content,
+.banner.middle .men .content,
+.banner.right .special .content{
+  opacity: 1;
+  visibility: visible;
+
+}
+
+.women .content{
+  left: 55%;
+}
+
+.men .content,
+.special .content{
+  left: 5%;
+}
+
+
+main{
+  width: 100%;
+  padding: 100px 0;
+  background: white;
+}
+
+
+// Call Up Section
+
+section.call-up{
+  width: 100%;
+  padding: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+
+  .call-up-box{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+    background: white;
+
+    fa-icon{
+      font-size: 5em;
+      color: var(--primary);
+    }
+
+    h4{
+      font-size: 1.3em;
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+
+    p{
+      font-weight: 300;
+    }
+  }
+}
+
+
+.newsletter{
+  position: relative;
+  padding: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+  width: 100%;
+  height: 120px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+  background: white;
+
+
+  .newsletter-box{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    fa-icon{
+      font-size: 3em;
+      color: var(--primary);
+    }
+
+    h4{
+      text-transform: uppercase;
+      font-size: 1.2em;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+  }
+
+  p{
+    width: 30%;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+
+    .discount{
+      color: var(--primary);
+      font-size: 4em;
+      font-weight: 500;
+      margin-left: 10px;
+    }
+  }
+
+  form{
+    width: 40%;
+    display: inline;
+    justify-content: flex-end;
+
+    input[type='text']{
+      outline: none;
+      border: 1px solid var(--third);
+      width: 400px;
+      padding: 10px 20px;
+    }
+
+    input[type='submit']{
+      outline: none;
+      border: 1px solid var(--primary);
+      padding: 10px 30px;
+      background: var(--primary);
+      color: white;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+
+    input[type='submit']:hover{
+      background: white;
+      color: var(--primary);
+    }
+
+  }
+}
+
+
+
+.contact{
+  position: relative;
+  padding: 100px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.contact .map{
+  width: 100%;
+}
+
+.contact .info-wrap{
+  margin-top: 80px;
+  width: 80%;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+  padding: 30px 50px;
+  display: flex;
+  justify-content: space-between;
+
+  .info{
+    background: white;
+
+    fa-icon{
+      color: white;
+      float: left;
+      font-size: 3em;
+      padding: 10px;
+      background: var(--primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    h4{
+      padding: 0 0 0 80px;
+      font-size: 1.2em;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+
+    p{
+      padding: 0 0 0 80px;
+      font-size: 1.2em;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+
+
+  }
+
+}
+
+
+.contact .contact-form{
+  width: 80%;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+  background: white;
+  padding: 30px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .form-group{
+    padding-bottom: 10px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+
+    input{
+      height: 45px;
+    }
+
+    input,
+    textarea{
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 0;
+      box-shadow: none;
+      font-size: 1em;
+      border: 1px solid rgb(218, 218, 218);
+      outline: none;
+    }
+
+
+    input::placeholder,
+    textarea::placeholder{
+      font-size: 1em;
+      font-family: 'Roboto', sans-serif;
+
+    }
+  }
+
+  .text-center{
+    display: flex;
+    justify-content: center;
+
+    button{
+      background: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 10px 25px;
+      color: white;
+      font-size: 1em;
+      text-transform: uppercase;
+      transition: 0.5s;
+      cursor: pointer;
+    }
+
+    button:hover{
+      background: white;
+      color: var(--primary);
+    }
+  }
+}
+
+
+.back-to-top{
+  position: fixed;
+  transform: scale(0);
+  right: 15px;
+  bottom: 30px;
+  background: var(--primary);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+
+  fa-icon{
+    font-size: 1.5em;
+  }
+
+}
+
+
+.back-to-top.active{
+  transform: scale(1);
+}
+
+
+
+
+// DISEÑO RESPONSIVO
+
+@media (max-width: 850px) {
+
+  .banner{
+    padding: 0 20px;
+  }
+
+  .women{
+    top: 0;
+    width: 100%;
+    height: 40%;
+    clip-path: polygon(0% 0%, 100% 0, 100% 75%, 50% 100%, 0 75%);
+  }
+
+
+  .men{
+    top: 30%;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    clip-path: polygon(100% 0%, 100% 100%, 50% 75%, 0% 100%, 0 0%, 50% 25%);
+  }
+
+
+  .special{
+    top: 60%;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 100%, 0% 100%, 0 25%);
+  }
+
+  .banner.left .women,
+  .banner.middle .men,
+  .banner.right .special{
+    height: 100%;
+  }
+
+  .banner.right .special{
+    top: 0;
+  }
+
+
+  .banner.middle .men{
+    top: 0%;
+  }
+
+
+  .banner.left .men,
+  .banner.left .special{
+    top: 120%;
+  }
+
+
+  .banner.right .men,
+  .banner.right .women{
+    top: - 120%;
+  }
+
+  .banner.middle .special{
+    top: 120%;
+  }
+
+
+  .switch-btn{
+    font-size: 4em;
+    margin-top: 0;
+  }
+
+  .banner.left .women img{
+    height: 50%;
+    width: 100% !important;
+  }
+
+
+  .banner.middle .men img,
+  .banner.right .special img{
+    left: 0;
+    top: 50%;
+    height: 50%;
+    width: 100% !important;
+  }
+
+  .banner .content{
+    width: 90%;
+  }
+
+  .banner .content h1{
+    font-size: 2.5em;
+    font-weight: 400;
+  }
+
+  .women .content{
+    left: 20px;
+    top: 60%;
+  }
+
+  .men .content,
+  .special .content{
+    left: 20px;
+    top: 10%;
+  }
+
+  .reset{
+    font-size: 2em;
+    left: 20px;
+    bottom: 20px;
+    transform: translateX(0);
+    transition: 0.5s;
+  }
+
+  .banner.middle{
+    .reset{
+      left: auto;
+      right: 20px;
+    }
+  }
+
+
+  section.call-up{
+    padding: 0 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+
+    .call-up-box{
+      fa-icon{
+        font-size: 2.5em;
+      }
+    }
+
+  }
+
+
+  .newsletter{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: auto;
+    padding: 20px;
+    gap: 20px;
+
+
+    .newsletter-box{
+      width: 100%;
+    }
+
+    p{
+      width: 100%;
+    }
+
+    form{
+      width: 100%;
+
+      input[type='text']{
+        width: 250px;
+      }
+    }
+  }
+
+
+  .contact{
+    padding: 50px 0 0;
+
+    .info-wrap{
+      flex-wrap: wrap;
+      width: 90%;
+      gap: 30px;
+      padding: 15px;
+
+      .info{
+        width: 100%;
+        fa-icon{
+          font-size: 2em;
+        }
+
+        p{
+          font-size: 1em;
+        }
+      }
+
+
+
+    }
+
+    .contact-form{
+      width: 90%;
+    }
+  }
+
+}

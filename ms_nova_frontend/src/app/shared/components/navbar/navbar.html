@@ -1,1 +1,50 @@
-<p>navbar works!</p>
+<header id="header"  [class.header-scrolled]="isHeaderScrolled">
+  <a href="#" class="logo">MS NOVA</a>
+  <ul class="nav">
+    <li>
+      <a href="#" (click)="scrollTop()"><fa-icon [icon]="faHome"></fa-icon></a>
+    </li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Shopping</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+
+  <ul class="util">
+    <li><a href="#">
+      <fa-icon [icon]="faSearch"></fa-icon></a>
+    </li>
+
+    <li>
+      <a href="#"><fa-icon [icon]="faPerson"></fa-icon></a>
+    </li>
+
+    <li>
+      <a href="#"><fa-icon [icon]="faHeart"></fa-icon></a>
+    </li>
+
+    <li>
+      <a href="#"><fa-icon [icon]="faBagShopping"></fa-icon></a>
+      <span class="number">{{cantidadShopping}}</span>
+    </li>
+
+  </ul>
+
+    <!-- MENU MOVIL -->
+    <a href="#" class="menu-movil" (click)="toggleMenu()" [class.active]="activeMovil">
+      <fa-icon [icon]="faBars"></fa-icon>
+    </a>
+</header>
+
+
+<!-- <ul class="nav-movil"  [class.active]="activeMovil">
+
+  <li>
+    <a href="#" (click)="scrollTop()">
+      <fa-icon [icon]="faHome"></fa-icon>
+    </a>
+  </li>
+  <li><a href="#about"  (click)="toggleMenu()">About</a></li>
+  <li><a href="#products"  (click)="toggleMenu()">Shopping</a></li>
+  <li><a href="#contact"  (click)="toggleMenu()">Contact Us</a></li>
+
+</ul> -->
