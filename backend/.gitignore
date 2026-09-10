@@ -31,3 +31,19 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+### JAVA ###
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+
+
+### Security ###
+.env
