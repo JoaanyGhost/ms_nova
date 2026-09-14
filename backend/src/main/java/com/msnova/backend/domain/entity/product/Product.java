@@ -1,5 +1,7 @@
 package com.msnova.backend.domain.entity.product;
 
+import com.msnova.backend.domain.entity.images.UploadedImage;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -10,7 +12,7 @@ public class Product {
     private String description;
     private double price;
     private String categoryId;
-    private List<String> images;
+    private List<UploadedImage> images;
     private List<ProductVariant> variants;
     private boolean active;
     private LocalDateTime createdAt;
@@ -21,7 +23,7 @@ public class Product {
     public Product(
             String id, String name, String description,
            double price, String categoryId,
-           List<String> images, List<ProductVariant> variants,
+           List<UploadedImage> images, List<ProductVariant> variants,
            boolean active, LocalDateTime createdAt) {
 
         this.id = id;
@@ -77,11 +79,11 @@ public class Product {
         this.categoryId = categoryId;
     }
 
-    public List<String> getImages() {
+    public List<UploadedImage> getImages() {
         return images;
     }
 
-    public void setImages(List<String> images) {
+    public void setImages(List<UploadedImage> images) {
         this.images = images;
     }
 

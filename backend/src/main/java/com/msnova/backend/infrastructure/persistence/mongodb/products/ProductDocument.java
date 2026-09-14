@@ -1,5 +1,6 @@
 package com.msnova.backend.infrastructure.persistence.mongodb.products;
 
+import com.msnova.backend.domain.entity.images.UploadedImage;
 import com.msnova.backend.domain.entity.product.ProductVariant;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -18,7 +19,7 @@ public class ProductDocument {
     private String description;
     private double price;
     private String categoryId;
-    private List<String> images;
+    private List<UploadedImage> images;
     private List<ProductVariant> variants;
     private boolean active;
     private LocalDateTime createdAt;
@@ -64,11 +65,11 @@ public class ProductDocument {
         this.categoryId = categoryId;
     }
 
-    public List<String> getImages() {
+    public List<UploadedImage> getImages() {
         return images;
     }
 
-    public void setImages(List<String> images) {
+    public void setImages(List<UploadedImage> images) {
         this.images = images;
     }
 

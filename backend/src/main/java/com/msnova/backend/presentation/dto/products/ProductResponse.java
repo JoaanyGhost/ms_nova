@@ -1,5 +1,6 @@
 package com.msnova.backend.presentation.dto.products;
 
+import com.msnova.backend.domain.entity.images.UploadedImage;
 import com.msnova.backend.domain.entity.product.Product;
 import com.msnova.backend.domain.entity.product.ProductVariant;
 
@@ -13,12 +14,12 @@ public class ProductResponse {
     private String description;
     private double price;
     private String categoryId;
-    private List<String> images;
+    private List<UploadedImage> images;
     private List<ProductVariant> variants;
     private boolean active;
     private LocalDateTime createdAt;
 
-    public ProductResponse(String id, String name, String description, double price, String categoryId, List<String> images, List<ProductVariant> variants, boolean active, LocalDateTime createdAt) {
+    public ProductResponse(String id, String name, String description, double price, String categoryId, List<UploadedImage> images, List<ProductVariant> variants, boolean active, LocalDateTime createdAt) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -85,11 +86,11 @@ public class ProductResponse {
         this.categoryId = categoryId;
     }
 
-    public List<String> getImages() {
+    public List<UploadedImage> getImages() {
         return images;
     }
 
-    public void setImages(List<String> images) {
+    public void setImages(List<UploadedImage> images) {
         this.images = images;
     }
 
